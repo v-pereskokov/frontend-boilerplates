@@ -1,0 +1,106 @@
+html, body {
+    margin: 0;
+    font-family: helvetica, arial, sans-serif;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+}
+
+html, body, #root,
+.ant-layout-content {
+    background-color: $background !important;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.ant-form-item-control.has-feedback .ant-input-suffix {
+    right: 25px !important;
+}
+
+.ant-input-hovered,
+.ant-input-focused,
+.ant-input:hover,
+
+.ant-select-selector-hovered,
+.ant-select-selector-focused,
+.ant-select-open,
+.ant-select-selector:hover,
+.ant-select-selector:active,
+.ant-select-selector:focus,
+
+.ant-input-number-hovered,
+.ant-input-number-focused,
+.ant-input-number:hover,
+.ant-input-number-input:hover {
+    border-color: $headerColor !important;
+    border-right-width: 1px !important;
+    box-shadow: none !important;
+}
+
+.ant-input,
+.ant-select-selector,
+.ant-input-number {
+    border-radius: 4px !important;
+}
+
+.ant-radio-wrapper:hover .ant-radio {
+    border-color: #FCB900 !important;
+    color: #FCB900 !important;
+}
+.ant-radio-checked .ant-radio-inner {
+    border-color: #FCB900 !important;
+    &::after {
+        background-color: #FCB900 !important;
+    }
+}
+.ant-radio-input:focus + .ant-radio-inner {
+    box-shadow: none;
+}
+.ant-radio-checked::after {
+    -webkit-animation: none;
+    animation: none;
+    -webkit-animation-fill-mode: none;
+    animation-fill-mode: none;
+    border: none;
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox-input:focus + .ant-checkbox-inner {
+    border-color: #FCB900 !important;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #FCB900 !important;
+    border-color: #FCB900 !important;
+}
+.ant-checkbox-checked::after {
+    border: none;
+}
+.ant-checkbox-inner::after {
+    -webkit-animation: none;
+    animation: none;
+    -webkit-animation-fill-mode: none;
+    animation-fill-mode: none;
+}
+
+.ant-select-focused.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    border-color: #F8D830 !important;
+    box-shadow: none;
+}
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: rgba(248, 216, 48, 0.5);
+}
+
+.ant-form-item-has-error {
+    margin-bottom: 24px;
+    & > .ant-form-item-control {
+        position: relative;
+        & > .ant-form-item-explain {
+            position: absolute;
+            top: 100%;
+        }
+    }
+}
