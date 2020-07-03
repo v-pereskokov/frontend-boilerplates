@@ -1,0 +1,43 @@
+.Button {
+    min-width: 300px;
+    color: #000000 !important;
+    background-color: $accent !important;
+    border-color: $accent !important;
+    border-radius: 4px;
+
+    &:disabled {
+        background-color: #F5F5F5 !important;
+        border-color: #F5F5F5 !important;
+    }
+
+    &, & span {
+        font-weight: 300;
+        font-family: helvetica, arial, sans-serif !important;
+    }
+
+    &:hover {
+        &:disabled {
+            background-color: #F5F5F5 !important;
+            border-color: #F5F5F5 !important;
+        }
+
+        $hoverEdaColor: rgba(248, 216, 48, 0.62);
+
+        background-color: $hoverEdaColor !important;
+        border-color: $hoverEdaColor !important;
+    }
+
+    &.ant-btn-default {
+        background-color: white !important;
+        border-color: white !important;
+        box-shadow: none;
+        &:hover {
+            $hoverEdaColor: rgba(248, 216, 48, 0.62);
+
+            border-color: $hoverEdaColor !important;
+        }
+    }
+    &.bordered {
+        border-color: $headerColor !important;
+    }
+}

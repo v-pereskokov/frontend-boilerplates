@@ -1,0 +1,6 @@
+location ~* \.(?:css|cur|js|jpe?g|gif|htc|ico|png|xml|otf|ttf|eot|woff|woff2|svg)$ {
+    expires 30d;
+    add_header Vary Accept-Encoding;
+    add_header Static-Cache on;
+    access_log off;
+}
