@@ -10,5 +10,4 @@ const greeting = document.createElement('h1');
 greeting.textContent = identity('Header');
 
 const app = document.querySelector('#root');
-app.appendChild(greeting);
-app.appendChild(logo);
+app.append(greeting, logo);
