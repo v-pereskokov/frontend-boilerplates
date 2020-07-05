@@ -30,10 +30,3 @@ typings/source
 dockerScripts/localization/auth.json
 dockerScripts/localization/diffs
 node_modules/
-scripts/tanker/diff.json
-scripts/tanker/diff.csv
-static/client/locale/*.json
-static/client/locale/*.csv
-!static/client/locale/ru.json
-!static/client/locale/ынъысцл.json
-!static/client/locale/localesList.json

@@ -5,7 +5,6 @@ module.exports = () => webpackConfig => {
         {loader: './webpack/loaders/b_-loader/loader.js'},
         MiniCssExtractPlugin.loader,
         {loader: 'css-loader'},
-        {loader: 'postcss-loader'},
     ];
 
     const sassLoader = {
@@ -36,7 +35,7 @@ module.exports = () => webpackConfig => {
                 {
                     loader: 'sass-resources-loader',
                     options: {
-                        resources: ['static/client/sass/variables.scss']
+                        resources: ['static/styles/variables.scss']
                     },
                 },
             ],

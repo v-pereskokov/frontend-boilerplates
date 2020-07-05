@@ -2,10 +2,9 @@ const webpack = require('webpack');
 
 const TerserPlugin = require('terser-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const {CheckerPlugin} = require('awesome-typescript-loader');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const ReactLoadableSSRAddon = require('react-loadable-ssr-addon');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = require('../../config');
 
@@ -40,7 +39,6 @@ module.exports = ({entry, context, alias}) => webpackConfig => {
         mode: __DEV__ ? 'development' : 'production',
         output: {
             filename: '[name].bundle.js',
-            chunkFilename: '[name].chunk.js',
             path: paths.base(config.dir_client_dist),
             pathinfo: false,
             publicPath: config.compiler_public_path
@@ -74,22 +72,10 @@ module.exports = ({entry, context, alias}) => webpackConfig => {
             new CheckerPlugin(),
             new webpack.DefinePlugin({
                 ...config.globals,
-                IS_STABLE: config.globals.__PROD__,
             }),
-            new LodashModuleReplacementPlugin({
-                shorthands: true,
-                cloning: true,
-                currying: true,
-                collections: true,
-                coercions: true,
-                flattening: true,
-                paths: true
-            }),
-            new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
-            new ReactLoadableSSRAddon({
-                filename: 'react-loadable-ssr-addon.json',
-                integrity: true,
-                integrityAlgorithms: ['sha256', 'sha384', 'sha512'],
+            new HtmlWebpackPlugin({
+                template: 'static/index.html',
+                hash: config.__PROD__,
             }),
         ],
         optimization: {

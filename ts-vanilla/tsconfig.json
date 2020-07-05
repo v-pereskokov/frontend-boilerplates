@@ -2,7 +2,6 @@
     "compilerOptions": {
         "sourceMap": true,
         "target": "es5",
-        "jsx": "react",
         "module": "esnext",
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
@@ -18,44 +17,16 @@
         "lib": ["dom", "es2017"],
         "baseUrl": ".",
         "paths": {
-            "__store": ["./static/client/store.ts"],
-            "__index": ["./static/client/index.tsx"],
-            "__actions": ["./static/client/actions.ts"],
-            "__reducers*": ["./static/client/reducers/index.ts"],
-            "__types": ["./static/client/types.ts"],
-            "__consts": ["./static/client/consts.ts"],
-
-            "__api/*": ["./static/client/api/*"],
-            "__assets/*": ["./static/client/assests/*"],
-            "__config/*": ["./static/client/config/*"],
-            "__locale/*": ["./static/client/locale/*"],
-            "__containers/*": ["./static/client/containers/*"],
-            "__loaders/*": ["./static/client/loaders/*"],
-            "__selectors/*": ["./static/client/selectors/*"],
-            "__services/*": ["./static/client/services/*"],
-            "__types/*": ["./static/client/types/*"],
-            "__components/*": ["./static/client/components/*"],
-            "__utils/*": ["./static/client/utils/*"],
-            "__reducers/*": ["./static/client/reducers/*"],
+            "__assets": ["./static/assets/*"],
+            "__styles": ["./static/styles/*"],
+            "__utils": ["./static/utils/*"],
 
             "*": ["node_modules/*", "static/*", "*"]
         },
-        "typeRoots": ["typings/**/*.d.ts", "node_modules/@types"],
-        "plugins": [
-            {
-                "transform": "ts-transformer-keys/transformer"
-            },
-            {
-                "transform": "typescript-plugin-styled-components",
-                "type": "config",
-                "minify": true,
-                "ssr": true
-            }
-        ]
+        "typeRoots": ["typings/**/*.d.ts", "node_modules/@types"]
     },
     "include": [
-        "static/client",
-        "static/server",
+        "static",
         "typings/**/*.d.ts",
         "node_modules/@types"
     ],

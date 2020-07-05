@@ -5,12 +5,11 @@ const config = {
     env: process.env.NODE_ENV || 'development',
 
     path_base: path.resolve(__dirname, '..'),
-    path_client: path.resolve(__dirname, '../static/client'),
+    path_client: path.resolve(__dirname, '../static'),
 
     dir_static: 'static',
-    dir_client: 'static/client',
-    dir_client_dist: 'dist/client',
-    dir_server_dist: 'dist/server',
+    dir_client: 'static',
+    dir_client_dist: 'dist',
     dir_server: 'server',
 
     compiler_public_path: '/dist/'

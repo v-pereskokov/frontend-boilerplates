@@ -1,6 +1,3 @@
-const keysTransformer = require('ts-transformer-keys/transformer').default;
-const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
-
 module.exports = ({tsconfigPath, compilerOptions: overrideCompilerOptions}) => webpackConfig => {
     const compilerOptions = overrideCompilerOptions ? {
         ...overrideCompilerOptions,
@@ -22,12 +19,6 @@ module.exports = ({tsconfigPath, compilerOptions: overrideCompilerOptions}) => w
                         // happyPackMode: true,
                         configFile: tsconfigPath,
                         compilerOptions,
-                        getCustomTransformers: program => ({
-                            before: [
-                                createStyledComponentsTransformer(),
-                                keysTransformer(program)
-                            ],
-                        }),
                     },
                 },
             ],

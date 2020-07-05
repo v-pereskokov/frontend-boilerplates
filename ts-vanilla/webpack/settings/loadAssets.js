@@ -21,7 +21,6 @@ module.exports = ({
     if (isCopyStatic) {
         webpackConfig.plugins.push(
             new CopyWebpackPlugin([
-                {from: './static/client/images', to: 'images'},
                 {from: './www/favicons', to: 'favicons'},
             ]),
         );

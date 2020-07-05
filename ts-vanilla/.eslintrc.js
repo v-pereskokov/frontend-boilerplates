@@ -5,7 +5,6 @@ module.exports = {
         '@typescript-eslint',
         'import',
         'eslint-comments',
-        'react',
     ],
     env: {
         es6: true,
@@ -28,7 +27,6 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
-        'plugin:react/recommended',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking'
@@ -182,30 +180,6 @@ module.exports = {
 
         // ASCII
         'ascii/valid-name': 0,
-
-        // React
-        'react/jsx-wrap-multilines': 'error',
-        'react/jsx-no-bind': 0,
-        'react/jsx-uses-react': 'error',
-        'react/jsx-uses-vars': 'error',
-        'react/display-name': 0,
-        'react/prop-types': 0,
-        'react/no-children-prop': 0,
-        'react/jsx-curly-spacing': [
-            'error',
-            {
-                when: 'never',
-            },
-        ],
-        'react/jsx-tag-spacing': [
-            'warn',
-            {
-                closingSlash: 'never',
-                beforeSelfClosing: 'never',
-                afterOpening: 'never',
-                beforeClosing: 'never'
-            }
-        ],
 
         globals: {
             IS_STABLE: true,

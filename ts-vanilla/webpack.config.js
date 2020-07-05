@@ -6,12 +6,16 @@ const {
     loadAssets,
     loadScripts,
     loadStyles,
+    loadDev,
 } = require('./webpack/settings');
+const config = require('./config');
 
-const webpackConfig = flow([
+const {__DEV__} = config.globals;
+
+const rules = [
     initClientConfig({
         entry: {
-            app: ['./static/client/index.tsx'],
+            app: ['./static/index.ts'],
         },
         context: __dirname
     }),
@@ -21,6 +25,12 @@ const webpackConfig = flow([
     }),
     loadStyles(),
     loadAssets(),
-])({});
+];
+
+if (__DEV__) {
+    rules.push(loadDev());
+}
+
+const webpackConfig = flow(rules)({});
 
 module.exports = webpackConfig;
