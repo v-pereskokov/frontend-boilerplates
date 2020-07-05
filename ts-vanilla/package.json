@@ -1,0 +1,288 @@
+{
+    "name": "ts-react-boilerplate",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "better-npm-run start",
+        "build:stable": "better-npm-run build:stable",
+        "build:testing": "better-npm-run build:testing",
+        "build:unstable": "better-npm-run build:testing",
+        "server:run": "better-npm-run server:run",
+        "server:build:dev": "better-npm-run server:build:dev",
+        "server:build:dev:watch": "better-npm-run server:build:dev:watch",
+        "server:build:stable": "better-npm-run server:build:stable",
+        "server:build:testing": "better-npm-run server:build:testing",
+        "client:build:stable": "better-npm-run client:build:stable",
+        "client:build:testing": "better-npm-run client:build:testing",
+        "client:build:dev": "better-npm-run client:build:dev",
+        "client:build:dev:watch": "better-npm-run client:build:dev:watch",
+        "profile": "better-npm-run profile:stable",
+        "clean": "rm -rf dist && mkdir dist",
+        "precommit:install": "./node_modules/precommit/bin/cli.js install",
+        "precommit:remove": "./node_modules/precommit/bin/cli.js remove",
+        "precommit": "npm run lint",
+        "lint": "npm run lint:src && npm run lint:typings",
+        "lint:fix": "npm run lint:fix:src && npm run lint:fix:typings",
+        "lint:typings": "npx eslint 'typings/**/*?(.*).ts?(x)'",
+        "lint:src": "npx eslint 'static/**/*?(.*).ts?(x)'",
+        "lint:fix:src": "npx eslint --fix 'static/**/*?(.*).ts?(x)'",
+        "lint:fix:typings": "npx eslint --fix 'typings/**/*?(.*).ts?(x)'",
+        "init": "npm i",
+        "test": "echo ok"
+    },
+    "author": "v-pereskokov",
+    "license": "ISC",
+    "dependencies": {
+        "@ant-design/colors": "4.0.0",
+        "@ant-design/icons": "4.2.1",
+        "antd": "4.3.4",
+        "moment": "2.24.0",
+        "react": "16.8.4",
+        "react-dom": "16.8.2",
+        "react-helmet": "6.0.0-beta",
+        "react-input-mask": "1.2.1",
+        "react-linkify": "0.2.2",
+        "react-redux": "7.1.3",
+        "react-router": "5.0.1",
+        "react-router-dom": "5.0.1",
+        "react-yandex-metrika": "2.5.1",
+        "redux": "4.0.1",
+        "redux-thunk": "2.3.0",
+        "reselect": "4.0.0",
+        "uuid": "8.1.0"
+    },
+    "devDependencies": {
+        "@babel/core": "7.3.3",
+        "@babel/plugin-proposal-class-properties": "7.5.5",
+        "@babel/plugin-proposal-object-rest-spread": "7.5.5",
+        "@babel/plugin-syntax-dynamic-import": "7.2.0",
+        "@babel/polyfill": "7.2.5",
+        "@babel/preset-env": "7.3.1",
+        "@babel/preset-react": "7.0.0",
+        "@types/b_": "1.3.1",
+        "@types/chai": "4.2.0",
+        "@types/classnames": "2.2.9",
+        "@types/lodash-es": "4.17.3",
+        "@types/mocha": "5.2.7",
+        "@types/node-fetch": "2.5.0",
+        "@types/qs": "6.9.0",
+        "@types/query-string": "6.3.0",
+        "@types/react": "16.9.38",
+        "@types/react-day-picker": "5.3.0",
+        "@types/react-helmet": "5.0.11",
+        "@types/react-hot-loader": "4.1.0",
+        "@types/react-inlinesvg": "0.8.1",
+        "@types/react-input-mask": "1.2.1",
+        "@types/react-linkify": "1.0.0",
+        "@types/react-loadable": "5.5.1",
+        "@types/react-redux": "7.1.1",
+        "@types/react-router": "5.0.3",
+        "@types/react-router-dom": "4.3.4",
+        "@types/react-scrollable-anchor": "0.6.0",
+        "@types/react-select": "3.0.2",
+        "@types/redux-actions": "2.6.1",
+        "@types/redux-thunk": "2.1.0",
+        "@types/reselect": "2.2.0",
+        "@types/webpack-dev-middleware": "2.0.3",
+        "@types/webpack-hot-middleware": "2.16.5",
+        "@typescript-eslint/eslint-plugin": "2.18.0",
+        "awesome-typescript-loader": "5.2.1",
+        "b_": "1.3.4",
+        "babel-eslint": "10.0.1",
+        "babel-loader": "8.0.5",
+        "babel-minify-webpack-plugin": "0.3.1",
+        "babel-plugin-transform-react-remove-prop-types": "0.4.24",
+        "better-npm-run": "0.1.1",
+        "body-parser": "1.19.0",
+        "chai": "4.2.0",
+        "classnames": "2.2.6",
+        "compression": "1.7.3",
+        "compression-webpack-plugin": "2.0.0",
+        "concurrently": "4.1.0",
+        "connected-react-router": "6.5.2",
+        "cookie-parser": "1.4.4",
+        "copy-webpack-plugin": "5.0.4",
+        "cross-env": "5.2.0",
+        "css-loader": "0.28.7",
+        "cssnano": "4.1.10",
+        "csv-loader": "3.0.2",
+        "duplicate-package-checker-webpack-plugin": "3.0.0",
+        "eslint": "5.6.0",
+        "eslint-config-airbnb": "17.1.0",
+        "eslint-config-prettier": "4.1.0",
+        "eslint-config-react-app": "3.0.7",
+        "eslint-plugin-eslint-comments": "3.1.2",
+        "eslint-plugin-eslint-plugin": "2.2.1",
+        "eslint-plugin-flowtype": "2.50.3",
+        "eslint-plugin-import": "2.20.0",
+        "eslint-plugin-jsx-a11y": "6.2.1",
+        "eslint-plugin-prettier": "3.0.1",
+        "eslint-plugin-react": "7.12.4",
+        "eslint-plugin-react-hooks": "1.5.0",
+        "express": "4.16.4",
+        "express-http-proxy": "1.5.1",
+        "file-loader": "4.2.0",
+        "fs": "0.0.1-security",
+        "html-loader": "0.5.5",
+        "http-proxy-middleware": "1.0.1",
+        "https": "1.0.0",
+        "husky": "1.3.1",
+        "img-loader": "3.0.1",
+        "immer": "6.0.9",
+        "isomorphic-fetch": "2.2.1",
+        "lint-staged": "8.1.4",
+        "lodash-es": "4.17.15",
+        "lodash-webpack-plugin": "0.11.5",
+        "lodash.flow": "3.5.0",
+        "mini-css-extract-plugin": "0.8.0",
+        "mocha": "6.2.0",
+        "node-fetch": "2.6.0",
+        "node-sass": "4.12.0",
+        "nodemon": "1.18.10",
+        "npm-run-all": "4.1.5",
+        "null-loader": "3.0.0",
+        "open-browser-webpack-plugin": "0.0.5",
+        "openssl-self-signed-certificate": "1.1.6",
+        "optimize-css-assets-webpack-plugin": "5.0.3",
+        "papaparse": "5.1.1",
+        "path": "0.12.7",
+        "postcss": "6.0.14",
+        "postcss-browser-reporter": "0.5.0",
+        "postcss-cssnext": "3.0.2",
+        "postcss-import": "11.0.0",
+        "postcss-loader": "2.0.8",
+        "postcss-reporter": "5.0.0",
+        "postcss-url": "7.2.1",
+        "precommit": "1.2.2",
+        "prettier": "1.16.4",
+        "pretty-quick": "1.10.0",
+        "qs": "6.9.1",
+        "query-string": "6.8.2",
+        "react-hot-loader": "4.12.10",
+        "react-inlinesvg": "1.1.5",
+        "react-lazy-load-image-component": "1.3.2",
+        "react-loadable": "5.5.0",
+        "react-loadable-ssr-addon": "0.1.9",
+        "react-svg-loader": "3.0.3",
+        "redux-actions": "2.6.5",
+        "redux-devtools-extension": "2.13.8",
+        "redux-logger": "3.0.6",
+        "sass-loader": "7.1.0",
+        "sass-resources-loader": "2.0.3",
+        "serialize-javascript": "2.1.2",
+        "style-loader": "0.21.0",
+        "styled-components": "4.3.2",
+        "terser-webpack-plugin": "2.2.1",
+        "ts-loader": "6.0.4",
+        "ts-transformer-keys": "0.3.5",
+        "tslint": "5.18.0",
+        "tslint-consistent-codestyle": "1.15.1",
+        "tslint-loader": "3.5.4",
+        "tslint-react": "4.0.0",
+        "typescript": "3.7.2",
+        "typescript-plugin-styled-components": "1.4.3",
+        "url-loader": "2.1.0",
+        "webpack": "4.29.4",
+        "webpack-bundle-analyzer": "3.3.2",
+        "webpack-cli": "3.2.3",
+        "webpack-dev-middleware": "3.7.0",
+        "webpack-dev-server": "3.1.14",
+        "webpack-hot-middleware": "2.25.0",
+        "webpack-merge": "4.2.1",
+        "webpack-node-externals": "1.7.2"
+    },
+    "precommit": {
+        "tasks": [
+            "npm run precommit"
+        ],
+        "onDirtyState": "ask",
+        "coloredOutput": true
+    },
+    "betterScripts": {
+        "start": {
+            "command": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && npm-run-all clean client:build:dev server:build:dev && npm-run-all --parallel client:build:dev:watch server:build:dev:watch server:run",
+            "env": {
+                "NODE_ENV": "development",
+                "DEBUG": "app:*",
+                "NODE_TLS_REJECT_UNAUTHORIZED": "0"
+            }
+        },
+        "build:stable": {
+            "command": "npm-run-all clean client:build:stable server:build:stable",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        },
+        "build:testing": {
+            "command": "npm-run-all clean client:build:testing server:build:testing"
+        },
+        "profile:stable": {
+            "command": "node ./node_modules/.bin/webpack --config webpack.config.js --profile --json > stats.data.json",
+            "env": {
+                "NODE_ENV": "production",
+                "DEBUG": "app:*"
+            }
+        },
+        "server:run": {
+            "command": "nodemon --watch dist/server --exec \"export NODE_TLS_REJECT_UNAUTHORIZED=0 && node dist/server/server.js\"",
+            "env": {
+                "NODE_ENV": "development",
+                "DEBUG": "app:*",
+                "NODE_TLS_REJECT_UNAUTHORIZED": "0"
+            }
+        },
+        "server:build:dev": {
+            "command": "webpack --config webpack.server.config.js",
+            "env": {
+                "NODE_ENV": "development",
+                "DEBUG": "app:*"
+            }
+        },
+        "server:build:dev:watch": {
+            "command": "webpack --config webpack.server.config.js --watch",
+            "env": {
+                "NODE_ENV": "development",
+                "DEBUG": "app:*"
+            }
+        },
+        "server:build:stable": {
+            "command": "webpack --config webpack.server.config.js",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        },
+        "server:build:testing": {
+            "command": "webpack --config webpack.server.config.js",
+            "env": {
+                "NODE_ENV": "testing"
+            }
+        },
+        "client:build:stable": {
+            "command": "webpack --config webpack.config.js",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        },
+        "client:build:testing": {
+            "command": "webpack --config webpack.config.js",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        },
+        "client:build:dev": {
+            "command": "webpack --config webpack.config.js",
+            "env": {
+                "NODE_ENV": "development",
+                "DEBUG": "app:*"
+            }
+        },
+        "client:build:dev:watch": {
+            "command": "webpack --config webpack.config.js --watch",
+            "env": {
+                "NODE_ENV": "development",
+                "DEBUG": "app:*"
+            }
+        }
+    }
+}
