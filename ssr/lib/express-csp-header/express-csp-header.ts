@@ -1,3 +1,5 @@
+// За основу взят https://github.com/frux/express-csp-header
+
 import crypto from 'crypto';
 import {getCSP, CSPHeaderParams, nonce} from 'csp-header';
 import {RequestHandler, Request, Response} from 'express';
