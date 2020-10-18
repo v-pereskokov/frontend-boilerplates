@@ -1,39 +1,45 @@
-import {createAction, handleActions} from 'redux-actions';
+import {ActionType, createAction, createReducer} from 'typesafe-actions';
 
-type ActionTypes =
-    | void;
 
 export interface PreloadReducer {
     isReady: boolean;
 }
 
-const PREFIX = 'preload';
 const defaultState: PreloadReducer = {
     isReady: false,
 };
 
 export const actions = {
-    setAsStart: createAction(`${PREFIX}/START`),
-    setAsReStart: createAction(`${PREFIX}/RE_START`),
-    setAsErrorReady: createAction(`${PREFIX}/ERROR`),
-    setAsReady: createAction(`${PREFIX}/SUCCESS`),
+    setAsStart: createAction('preload/START')<void>(),
+    setAsReStart: createAction('preload/RE_START')<void>(),
+    setAsErrorReady: createAction('preload/ERROR')<void>(),
+    setAsReady: createAction('preload/SUCCESS')<void>(),
 };
 
-export default handleActions<PreloadReducer, ActionTypes>({
-    [actions.setAsStart.toString()]: (state: PreloadReducer): PreloadReducer => ({
-        ...state,
-        isReady: false,
-    }),
-    [actions.setAsReStart.toString()]: (state: PreloadReducer): PreloadReducer => ({
-        ...state,
-        isReady: false,
-    }),
-    [actions.setAsReady.toString()]: (state: PreloadReducer): PreloadReducer => ({
-        ...state,
-        isReady: true,
-    }),
-    [actions.setAsErrorReady.toString()]: (state: PreloadReducer): PreloadReducer => ({
-        ...state,
-        isReady: true,
-    }),
-}, defaultState);
+const reducer = createReducer<PreloadReducer, ActionType<typeof actions>>(defaultState)
+    .handleAction(
+        actions.setAsStart,
+        () => ({
+            isReady: false,
+        }),
+    )
+    .handleAction(
+        actions.setAsReStart,
+        () => ({
+            isReady: false,
+        }),
+    )
+    .handleAction(
+        actions.setAsReady,
+        () => ({
+            isReady: true,
+        }),
+    )
+    .handleAction(
+        actions.setAsErrorReady,
+        () => ({
+            isReady: true,
+        }),
+    );
+
+export default reducer;

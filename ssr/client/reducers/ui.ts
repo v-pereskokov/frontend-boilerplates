@@ -1,24 +1,26 @@
-import {createAction, handleActions} from 'redux-actions';
+import {ActionType, createAction, createReducer} from 'typesafe-actions';
 
 export interface UIReducer {
-    loading?: boolean;
+    loading: boolean;
 }
 
-const PREFIX = 'UI';
 const defaultState: UIReducer = {
     loading: false,
 };
 
 export const actions = {
-    startLoading: createAction(`${PREFIX}/START_LOADING`),
-    stopLoading: createAction(`${PREFIX}/STOP_LOADING`),
+    startLoading: createAction('ui/START_LOADING')<void>(),
+    stopLoading: createAction('ui/STOP_LOADING')<void>(),
 };
 
-export default handleActions<UIReducer>({
-    [actions.startLoading.toString()]: (): UIReducer => ({
-        loading: true,
-    }),
-    [actions.stopLoading.toString()]: (): UIReducer => ({
-        loading: false,
-    }),
-}, defaultState);
+const reducer = createReducer<UIReducer, ActionType<typeof actions>>(defaultState)
+    .handleAction(
+        actions.startLoading,
+        () => ({loading: true}),
+    )
+    .handleAction(
+        actions.stopLoading,
+        () => ({loading: false}),
+    );
+
+export default reducer;

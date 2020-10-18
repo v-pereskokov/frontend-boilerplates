@@ -164,6 +164,7 @@ module.exports = {
         // TypeScript
         '@typescript-eslint/no-angle-bracket-type-assertion': 0,
         '@typescript-eslint/camelcase': 0,
+        '@typescript-eslint/no-unnecessary-type-assertion': 0,
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/explicit-function-return-type': 0,
         '@typescript-eslint/no-var-requires': 0,

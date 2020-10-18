@@ -1,8 +1,9 @@
+import produce, {Draft} from 'immer';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import merge from 'lodash/merge';
-import {Action, createAction, handleActions} from 'redux-actions';
 import {createSelector} from 'reselect';
+import {ActionType, createAction, createReducer} from 'typesafe-actions';
 
 import {CommonStore} from 'client/utils/infrastructure/store';
 
@@ -12,34 +13,50 @@ import {checkPending} from './utils';
 
 export function generateBaseActions<D>(prefix: string): BaseActions<D> {
     return {
-        success: createAction<D>(`${prefix}/SUCCESS`),
-        pending: createAction<void>(`${prefix}/PENDING`),
-        failed: createAction<string>(`${prefix}/FAILED`),
-        reset: createAction<void>(`${prefix}/RESET`),
+        success: createAction(`${prefix}/SUCCESS`)<D>() as BaseActions<D>['success'],
+        pending: createAction(`${prefix}/PENDING`)<void>(),
+        failed: createAction(`${prefix}/FAILED`)<string>(),
+        reset: createAction(`${prefix}/RESET`)<void>(),
     };
 }
 
 export function generateBaseReducer<D>(prefix: string, defaultState: Partial<BaseState<D>>) {
-    const actions = generateBaseActions<D>(prefix);
+    // TODO: fix types
+    const actions: any = generateBaseActions<D>(prefix);
     const defaultValue = merge(baseDefaultState, cloneDeep(defaultState));
 
-    const reducer = handleActions<BaseState<D>, any>({
-        [actions.success.toString()]: (state: BaseState<D>, {payload}: Action<D>): BaseState<D> => ({
-            ...state,
-            data: payload,
-            status: Status.Success,
-        }),
-        [actions.failed.toString()]: (state: BaseState<D>, {payload}: Action<string>): BaseState<D> => ({
-            ...state,
-            error: payload,
-            status: Status.Failed,
-        }),
-        [actions.pending.toString()]: (state: BaseState<D>, _: Action<D>): BaseState<D> => ({
-            ...state,
-            status: Status.Pending,
-        }),
-        [actions.reset.toString()]: (_state: BaseState<D>, _: Action<D>): BaseState<D> => defaultValue,
-    }, baseDefaultState);
+    const reducer = createReducer<BaseState<D>, ActionType<typeof actions>>(baseDefaultState)
+        .handleAction(
+            actions.success,
+            (state, {payload}) => produce(state, draft => {
+                draft.data = payload as Draft<BaseState<D>['data']>;
+                draft.status = Status.Success;
+
+                return draft as BaseState<D>;
+            }),
+        )
+        .handleAction(
+            // @ts-ignore
+            actions.failed,
+            (state, {payload}) => produce(state, draft => {
+                draft.error = payload;
+                draft.status = Status.Failed;
+
+                return draft as BaseState<D>;
+            }),
+        )
+        .handleAction(
+            actions.pending,
+            state => produce(state, draft => {
+                draft.status = Status.Pending;
+
+                return draft;
+            }),
+        )
+        .handleAction(
+            actions.reset,
+            () => defaultValue,
+        );
 
     return {
         actions,

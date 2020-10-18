@@ -1,4 +1,4 @@
-import {ActionFunction1, Action} from 'redux-actions';
+import {PayloadActionCreator} from 'typesafe-actions';
 import {Nullable} from 'utils';
 
 export enum Status {
@@ -8,10 +8,10 @@ export enum Status {
 }
 
 export interface BaseActions<D> {
-    success: ActionFunction1<D, Action<D>>;
-    pending: ActionFunction1<void, Action<void>>;
-    failed: ActionFunction1<string, Action<string>>;
-    reset: ActionFunction1<void, Action<void>>;
+    success: PayloadActionCreator<string, D>;
+    pending: PayloadActionCreator<string, void>;
+    failed: PayloadActionCreator<string, string>;
+    reset: PayloadActionCreator<string, void>;
 }
 
 export interface BaseState<D> {

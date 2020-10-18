@@ -6,7 +6,7 @@ import {baseApi} from 'client/utils/transport';
 class CSRFAPI implements EntityAPI {
     public request = () => {
         return baseApi.get<void, CSRF>('/csrf_token')
-            .then(({sk}) => sk);
+            .then(({token}) => token);
     };
 }
 

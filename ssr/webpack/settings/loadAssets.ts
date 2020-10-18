@@ -14,10 +14,12 @@ export default ({
 
     if (isCopyStatic) {
         webpackConfig.plugins.push(
-            new CopyWebpackPlugin([
-                {from: './www/favicons', to: 'favicons'},
-                {from: './www/robots.txt', to: ''},
-            ]),
+            new CopyWebpackPlugin({
+                patterns: [
+                    {from: './www/favicons', to: 'favicons'},
+                    {from: './www/robots.txt', to: ''},
+                ],
+            }),
         );
     }
 
