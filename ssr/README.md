@@ -2,7 +2,7 @@
 
 ## Установка и разработка
 
-- `npm run install`
+- `npm run init`
 
 ```bash
 ~$ npm run dev
