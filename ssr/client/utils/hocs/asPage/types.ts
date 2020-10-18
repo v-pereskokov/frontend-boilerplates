@@ -11,3 +11,8 @@ export interface Page {
     title?: string;
     name?: string;
 }
+
+export interface ComponentProps {
+    title: string;
+    id: string;
+}

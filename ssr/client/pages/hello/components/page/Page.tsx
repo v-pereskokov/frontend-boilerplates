@@ -39,4 +39,8 @@ const Page: Props = ({
         />
     );
 };
+
+Page.title = 'Hello title';
+Page.id = 'hello';
+
 export default Page;

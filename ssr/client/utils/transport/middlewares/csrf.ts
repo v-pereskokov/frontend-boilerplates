@@ -7,7 +7,7 @@ export type CSRFReturnType = HeadersReturnType & {
 };
 
 export const csrf: Middleware<void, CSRFReturnType> = async () => {
-    const response = await csrfLoader();
+    const response = (await csrfLoader()) as string;
 
     return {
         name: 'csrf',

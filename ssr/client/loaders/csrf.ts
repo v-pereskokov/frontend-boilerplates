@@ -1,7 +1,7 @@
 import {apiInstance} from 'client/api/CSRFAPI';
 import {item} from 'client/reducers/user/csrf';
-import {entityLoader} from 'client/utils/infrastructure/reducers/entityLoader';
+import {entityFind} from 'client/utils/infrastructure/reducers/entityLoader';
 
-export const csrfLoader = entityLoader(apiInstance, {
+export const csrfLoader = entityFind(apiInstance, {
     actions: item.actions,
 });

@@ -5,7 +5,7 @@ import {ExtendedState} from 'client/utils/infrastructure/store';
 import {HelloReducers} from './reducers';
 
 export type BundleState = ExtendedState<{
-    helloReducer: HelloReducers;
+    hello: HelloReducers;
 }>;
 
 export interface RouterProps {
