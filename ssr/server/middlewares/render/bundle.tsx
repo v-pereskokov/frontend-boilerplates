@@ -54,9 +54,7 @@ function getPageHtml(params: PageHtmlParams) {
                 <style
                     data-styled="true"
                     nonce={data.nonce}
-                    dangerouslySetInnerHTML={{
-                        __html: styled.replace('<style*>', ''.replace('<style/>', '')),
-                    }}
+                    dangerouslySetInnerHTML={{__html: styled}}
                 />
 
                 <link rel="icon" type="image/png" href="/favicons/favicon.png"/>
