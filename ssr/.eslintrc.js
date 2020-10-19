@@ -6,6 +6,7 @@ module.exports = {
         'import',
         'eslint-comments',
         'react',
+        'react-hooks',
     ],
     env: {
         es6: true,
@@ -13,7 +14,7 @@ module.exports = {
     },
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        ecmaVersion: 6,
+        ecmaVersion: 2018,
         sourceType: 'module',
         ecmaFeatures: {
             jsx: true,
@@ -212,5 +213,9 @@ module.exports = {
                 beforeClosing: 'never'
             }
         ],
+
+        // React Hooks
+        'react-hooks/rules-of-hooks': 2,
+        'react-hooks/exhaustive-deps': 2,
     }
 };

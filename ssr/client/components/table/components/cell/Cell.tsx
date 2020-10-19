@@ -29,7 +29,7 @@ const Cell: Props = ({className, type = 'common', children, ...rest}) => {
                 );
             }
         }
-    }, [type, className, rest]);
+    }, [type, className, rest, children]);
 
     return content;
 };

@@ -34,12 +34,12 @@ const ScrollToTop: Props = ({
     const [visible, setVisible] = useState(false);
     const onScroll = useCallback(() => {
         setVisible(document.documentElement.scrollTop > top);
-    }, []);
+    }, [top]);
     useEffect(() => {
         document.addEventListener('scroll', onScroll);
 
         return () => { document.removeEventListener('scroll', onScroll); };
-    }, []);
+    }, [onScroll]);
     const scrollToTopHandler = useCallback(() => scrollToTop(smooth), [smooth]);
 
     return (
